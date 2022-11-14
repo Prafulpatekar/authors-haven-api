@@ -181,3 +181,37 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_URLS_REGEX = r"^/api/.*$"
 # only allow this origin
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers":False,
+    "formatters":{
+        "verbose":{
+            "format":"%(levelname)s %(name)-12s %(asctime)s %(module)s " "%(process)d %(thread)d %(message)s"
+        }
+    },
+    "handlers":{
+        "console":{
+            "level":"DEBUG",
+            "class":"logging.StreamHandler",
+            "formatter":"verbose",
+        }        
+
+    },
+    "root":{"level":"INFO","handlers":["console"]},
+
+}
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'root': {
+#         'handlers': ['console'],
+#         'level': 'WARNING',
+#     },
+# }
